@@ -41,10 +41,10 @@ const machine = createMachine({
   },
 });
 
-machine.send("SUBMIT");              // ok - returns Machine<..., "loading">
-machine.send("SUBMIT").send("SUCCESS"); // ok - chained, returns Machine<..., "done">
+machine.send("SUBMIT");                 // returns Machine<..., "loading">
+machine.send("SUBMIT").send("SUCCESS"); // returns Machine<..., "done">
 
-machine.send("SUCCESS"); // compile error - "SUCCESS" is not valid from "idle"
+machine.send("SUCCESS"); // compile error: "SUCCESS" not valid from "idle"
 ```
 
 ## Why
